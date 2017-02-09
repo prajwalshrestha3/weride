@@ -5,5 +5,5 @@
     <string name="find_button_home">FIND</string>
     <string name="profile_button_home">PROFILE</string>
     <string name="stats_button_home">STATS</string>
-
+    <string name="title_activity_maps">Map</string>
 </resources>
