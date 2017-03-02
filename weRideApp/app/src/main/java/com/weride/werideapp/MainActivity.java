@@ -17,8 +17,13 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
 
-    public void gotomap(View view){
+    public void goToMap(View view){
         Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToCreateRacePage(View view){
+        Intent intent = new Intent(this, CreateRaceActivity.class);
         startActivity(intent);
     }
 }
