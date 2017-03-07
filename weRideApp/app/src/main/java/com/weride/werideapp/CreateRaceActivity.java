@@ -1,5 +1,7 @@
 package com.weride.werideapp;
 
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
@@ -32,6 +34,7 @@ public class CreateRaceActivity extends AppCompatActivity implements OnMapReadyC
         mMap.addMarker(new MarkerOptions().position(london).title("Marker in LONDON"));
         mMap.addMarker(new MarkerOptions().position(brighton).title("Marker in Brighton"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(london));
+
     }
 
 //    SeekBar seekBar = (SeekBar)findViewById(R.id.ageSeekBar);
