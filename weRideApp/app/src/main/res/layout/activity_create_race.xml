@@ -9,117 +9,186 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.weride.werideapp.CreateRaceActivity">
+    tools:context="com.weride.werideapp.CreateRaceActivity"
+    android:isScrollContainer="true"
+    android:nestedScrollingEnabled="true"
+    android:scrollIndicators="right"
+    android:scrollbars="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text|textPersonName"
-            android:ems="10"
-            android:id="@+id/RaceNameInput"
-            android:hint="Enter name of race"
-            android:textColorHighlight="@color/cast_expanded_controller_ad_label_background_color"
-            android:textColor="?attr/colorPrimary"
-            android:layout_marginBottom="15dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:inputType="text|textPersonName"
+                android:ems="10"
+                android:id="@+id/RaceNameInput"
+                android:hint="Enter name of race"
+                android:textColorHighlight="@color/cast_expanded_controller_ad_label_background_color"
+                android:textColor="?attr/colorPrimary"
+                android:layout_marginBottom="15dp" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/startLocEditText"
-                    android:layout_weight="1"
-                    android:hint="Enter start location" />
-
-                <Button
-                    android:text="Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/chooseStartLocationButton" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
+            <TextView
+                android:text="Start Time/Date:"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:id="@+id/dateTimePickerLabel"
+                android:textSize="18sp"
+                android:layout_marginBottom="5dp" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/endLocEditText"
-                    android:layout_weight="1"
-                    android:hint="Enter end location" />
-
-                <Button
-                    android:text="Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/chooseEndLocationButton" />
-
-            </LinearLayout>
-
-            <fragment
-                android:id="@+id/map2"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
+            <TimePicker
                 android:layout_width="match_parent"
-                tools:context="com.weride.werideapp.CreateRaceActivity"
-                tools:layout="@android:layout/activity_list_item"
+                android:id="@+id/startTimePicker"
+                android:timePickerMode="spinner"
+                android:soundEffectsEnabled="true"
+                android:background="@android:color/holo_green_light"
                 android:layout_height="100dp" />
+
+            <DatePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/datePicker"
+                android:datePickerMode="spinner"
+                android:headerBackground="@android:color/holo_green_light"
+                android:calendarTextColor="@color/cast_expanded_controller_ad_container_white_stripe_color"
+                android:calendarViewShown="false"
+                android:background="@android:color/holo_green_light"
+                android:fadingEdge="none"
+                android:layout_marginBottom="15dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/startLocEditText"
+                        android:layout_weight="1"
+                        android:hint="Enter start location" />
+
+                    <Button
+                        android:text="Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chooseStartLocationButton" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/endLocEditText"
+                        android:layout_weight="1"
+                        android:hint="Enter end location" />
+
+                    <Button
+                        android:text="Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chooseEndLocationButton" />
+
+                </LinearLayout>
+
+                <fragment
+                    android:id="@+id/map2"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    tools:context="com.weride.werideapp.CreateRaceActivity"
+                    tools:layout="@android:layout/activity_list_item"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="15dp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:text="Pace:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/paceTextLabel"
+                android:textSize="18sp"
+                android:layout_marginBottom="5dp" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:numStars="5"
+                android:layout_marginBottom="15dp"
+                style="@style/Widget.AppCompat.RatingBar"
+                android:stepSize="1"
+                android:indeterminateDrawable="@drawable/button_bg" />
+
+            <TextView
+                android:text="Age:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ageTextLabel"
+                android:textSize="18sp"
+                android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <RadioButton
+                    android:text="18-35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton18_35"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="36-50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton36_50"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="50+"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioButton50"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <Button
+                android:text="Create Race"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/createRaceButton"
+                android:layout_weight="1"
+                android:layout_marginBottom="15dp" />
+
         </LinearLayout>
+    </ScrollView>
 
-
-        <TextView
-            android:text="Pace"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/paceTextTag"
-            android:textSize="18sp" />
-
-        <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
-            android:numStars="5"
-            android:layout_marginBottom="15dp" />
-
-        <TextView
-            android:text="Age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView7"
-            android:textSize="18sp" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ageSeekBar"
-            android:layout_marginBottom="15dp"
-            android:max="50"
-            />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView" />
-
-    </LinearLayout>
 </RelativeLayout>
