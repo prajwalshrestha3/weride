@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text|textPersonName"
                 android:ems="10"
-                android:id="@+id/RaceNameInput"
+                android:id="@+id/raceNameInput"
                 android:hint="Enter name of race"
                 android:textColorHighlight="@color/cast_expanded_controller_ad_label_background_color"
                 android:textColor="?attr/colorPrimary"
@@ -82,20 +82,8 @@
                         android:ems="10"
                         android:id="@+id/startLocEditText"
                         android:layout_weight="1"
-                        android:hint="Enter start location" />
-
-                    <Button
-                        android:text="Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/chooseStartLocationButton" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp">
+                        android:hint="Enter start location"
+                        android:textColor="?attr/colorPrimary" />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -104,14 +92,24 @@
                         android:ems="10"
                         android:id="@+id/endLocEditText"
                         android:layout_weight="1"
-                        android:hint="Enter end location" />
+                        android:hint="Enter end location"
+                        android:textColor="?attr/colorPrimary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp">
 
                     <Button
                         android:text="Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/chooseEndLocationButton" />
-
+                        android:id="@+id/chooseStartLocationButton"
+                        android:onClick="showRouteMarkers"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
                 <fragment
@@ -120,8 +118,8 @@
                     android:layout_width="match_parent"
                     tools:context="com.weride.werideapp.CreateRaceActivity"
                     tools:layout="@android:layout/activity_list_item"
-                    android:layout_height="100dp"
-                    android:layout_marginBottom="15dp" />
+                    android:layout_marginBottom="15dp"
+                    android:layout_height="300dp" />
             </LinearLayout>
 
 
@@ -186,7 +184,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/createRaceButton"
                 android:layout_weight="1"
-                android:layout_marginBottom="15dp" />
+                android:layout_marginBottom="15dp"
+                android:onClick="goToTestActivity"/>
 
         </LinearLayout>
     </ScrollView>
