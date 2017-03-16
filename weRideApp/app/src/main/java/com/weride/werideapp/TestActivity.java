@@ -16,5 +16,8 @@ public class TestActivity extends AppCompatActivity {
         tv.setText(rideInfo.raceName);
         tv = (TextView)findViewById(R.id.dateView);
         tv.setText(rideInfo.dateTime.getTime().toString());
+        tv = (TextView)findViewById(R.id.locView);
+        tv.setText(String.valueOf(rideInfo.age));
+
     }
 }

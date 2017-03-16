@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.weride.werideapp.CreateRaceActivity"
+    tools:context="com.weride.werideapp.CreateRideActivity"
     android:isScrollContainer="true"
     android:nestedScrollingEnabled="true"
     android:scrollIndicators="right"
@@ -17,7 +17,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <LinearLayout
             android:orientation="vertical"
@@ -104,7 +106,7 @@
                     android:layout_marginBottom="15dp">
 
                     <Button
-                        android:text="Button"
+                        android:text="Show chosen route"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/chooseStartLocationButton"
@@ -116,7 +118,7 @@
                     android:id="@+id/map2"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    tools:context="com.weride.werideapp.CreateRaceActivity"
+                    tools:context="com.weride.werideapp.CreateRideActivity"
                     tools:layout="@android:layout/activity_list_item"
                     android:layout_marginBottom="15dp"
                     android:layout_height="300dp" />
@@ -134,7 +136,7 @@
             <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
+                android:id="@+id/paceBar"
                 android:numStars="5"
                 android:layout_marginBottom="15dp"
                 style="@style/Widget.AppCompat.RatingBar"
@@ -173,7 +175,7 @@
                     android:text="50+"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radioButton50"
+                    android:id="@+id/radioButton50Plus"
                     android:layout_weight="1" />
 
             </LinearLayout>

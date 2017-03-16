@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToCreateRacePage(View view){
-        Intent intent = new Intent(this, CreateRaceActivity.class);
+    public void goToCreateRidePage(View view){
+        Intent intent = new Intent(this, CreateRideActivity.class);
         startActivity(intent);
     }
 }

@@ -37,7 +37,7 @@
             android:layout_marginBottom="35dp"
             android:textAppearance="@style/home_button_style"
             android:background="@drawable/button_bg"
-            android:onClick="goToCreateRacePage"/>
+            android:onClick="goToCreateRidePage"/>
 
         <Button
             android:text="@string/find_button_home"

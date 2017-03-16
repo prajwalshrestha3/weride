@@ -1,6 +1,5 @@
 package com.weride.werideapp;
 
-import android.location.Location;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -12,16 +11,19 @@ import java.util.Calendar;
 public class RideInfo implements Serializable{
     String raceName;
     Calendar dateTime;
-    Location startLoc, endLoc;
-    int pace, age;
+    Double startLat, startLng, endLat, endLng;
+    int createdByID, pace, age;
 
-    public RideInfo(String name, Calendar startDateTime){
-        raceName = name;
-        dateTime = startDateTime;
-//        startLoc = start;
-//        endLoc = end;
-//        pace = racePace;
-//        age = riderAge;
+    public RideInfo(int createdByID, String raceName, Calendar dateTime, Double startLat, Double startLng, Double endLat, Double endLng, int pace, int age){
+        this.createdByID = createdByID;
+        this.raceName = raceName;
+        this.dateTime = dateTime;
+        this.startLat = startLat;
+        this.startLng = startLng;
+        this.endLat = endLat;
+        this.endLng = endLng;
+        this.pace = pace;
+        this.age = age;
     }
 
 }
