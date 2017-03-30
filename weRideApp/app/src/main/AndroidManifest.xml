@@ -54,7 +54,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".CreateRideActivity" />
+        <activity android:name=".CreateRideActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".TestActivity" />
         <activity android:name=".FindRideActivity"></activity>
     </application>
