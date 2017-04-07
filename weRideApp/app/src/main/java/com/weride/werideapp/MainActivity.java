@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateRideActivity.class);
         startActivity(intent);
     }
+    public void goToRegisterpage (View view) {
+        Intent intent = new Intent(this, Registerpage.class);
+        startActivity(intent);
+    }
 }
 
 

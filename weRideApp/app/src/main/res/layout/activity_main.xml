@@ -55,7 +55,9 @@
             android:id="@+id/profile_button_home"
             android:layout_marginBottom="35dp"
             android:textAppearance="@style/home_button_style"
-            android:background="@drawable/button_bg"/>
+            android:background="@drawable/button_bg"
+            android:onClick="goToRegisterpage"/>
+
 
         <Button
             android:text="@string/stats_button_home"

@@ -56,7 +56,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".CreateRideActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".FindRideActivity"></activity>
+        <activity android:name=".FindRideActivity" />
+        <activity android:name=".Registerpage"></activity>
     </application>
 
 </manifest>
