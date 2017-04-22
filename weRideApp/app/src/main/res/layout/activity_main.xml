@@ -46,7 +46,8 @@
             android:id="@+id/find_button_home"
             android:layout_marginBottom="35dp"
             android:textAppearance="@style/home_button_style"
-            android:background="@drawable/button_bg"/>
+            android:background="@drawable/button_bg"
+            android:onClick="goToFindRidePage"/>
 
         <Button
             android:text="@string/profile_button_home"

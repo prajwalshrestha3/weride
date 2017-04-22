@@ -11,14 +11,14 @@ import java.util.Calendar;
  */
 
 public class RideInfo implements Serializable{
-    String raceName, distance;
+    String rideName, distance;
     Calendar dateTime;
     double startLat, startLng, endLat, endLng;
     int createdByID, pace, age;
 
-    public RideInfo(int createdByID, String raceName, Calendar dateTime, double startLat, double startLng, double endLat, double endLng, String distance, int pace, int age){
+    public RideInfo(int createdByID, String rideName, Calendar dateTime, double startLat, double startLng, double endLat, double endLng, String distance, int pace, int age){
         this.createdByID = createdByID;
-        this.raceName = raceName;
+        this.rideName = rideName;
         this.dateTime = dateTime;
         this.startLat = startLat;
         this.startLng = startLng;
@@ -31,7 +31,7 @@ public class RideInfo implements Serializable{
 
     public String infoToString(){
         return this.createdByID + ", " +
-                this.raceName + ", " +
+                this.rideName + ", " +
                 this.dateTime.getTime() + ", " +
                 this.startLat + ", " +
                 this.startLng + ", " +

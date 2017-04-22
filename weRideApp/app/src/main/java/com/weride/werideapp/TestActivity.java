@@ -13,7 +13,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         RideInfo rideInfo = (RideInfo)getIntent().getSerializableExtra("rideInfo");
         TextView tv = (TextView)findViewById(R.id.nameView);
-        tv.setText(rideInfo.raceName);
+        tv.setText(rideInfo.rideName);
         tv = (TextView)findViewById(R.id.dateView);
         tv.setText(rideInfo.dateTime.getTime().toString());
         tv = (TextView)findViewById(R.id.locView);
