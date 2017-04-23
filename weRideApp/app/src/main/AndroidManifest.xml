@@ -57,9 +57,11 @@
         <activity
             android:name=".CreateRideActivity"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".FindRideActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".FindRideActivity" />
-        <activity android:name=".FindRideResultsPage"></activity>
+        <activity android:name=".FindRideResultPage"></activity>
     </application>
 
 </manifest>
