@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/nameslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textColor="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/surenameslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Surename"
+        android:textColor="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/ageslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Age"
+        android:textColor="?attr/colorPrimary" />
+
+    <EditText
+        android:id="@+id/addressslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:text="Address"
+        android:textColor="#99cc00" />
+
+    <EditText
+        android:id="@+id/emailslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        android:textColor="#99cc00" />
+
+    <EditText
+        android:id="@+id/usrenameslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:textColor="#99cc00" />
+
+    <EditText
+        android:id="@+id/pwslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="password"
+        android:textColor="#99cc00" />
+
+    <Button
+        android:id="@+id/insertregslot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Registration"
+        android:textColor="#99cc00"
+        android:textColorHint="@android:color/white"
+        android:onClick="onReg"/>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

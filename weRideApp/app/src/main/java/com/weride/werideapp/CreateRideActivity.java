@@ -1,12 +1,14 @@
 package com.weride.werideapp;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.test.espresso.core.deps.guava.net.UrlEscapers;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -39,6 +41,8 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
+import static java.sql.Types.NULL;
+
 public class CreateRideActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -52,6 +56,7 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map2);
         mapFragment.getMapAsync(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
 
     @Override
@@ -72,27 +77,56 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
         String name = getName();
         Calendar dateTime = getDateTime();
         double startLat = getStartLoc().latitude;
+        System.out.println("EROOR HERE");
+
         double startLng = getStartLoc().longitude;
         double endLat = getEndLoc().latitude;
         double endLng = getEndLoc().longitude;
         String distance = getDistance();
         int pace = getPace();
         int age = getAge();
-        RideInfo rideInfo = new RideInfo(1, name, dateTime, startLat, startLng, endLat, endLng, distance, pace, age);
-        System.out.println(rideInfo.infoToString());
-        Intent intent = new Intent(this, TestActivity.class);
-        intent.putExtra("rideInfo", rideInfo);
-        startActivity(intent);
+
+        if(name=="" ||
+                dateTime==null ||
+                startLat==0 ||
+                startLng==0 ||
+                endLat==0 ||
+                endLng==0 ||
+                distance=="" ||
+                pace==0 ||
+                age==0)
+        {
+            EditText editText = (EditText)findViewById(R.id.rideNameInput);
+            editText.setError("Please enter a ride name");
+            editText = (EditText)findViewById(R.id.startLocEditText);
+            editText.setError("Please enter a start location");
+            editText = (EditText)findViewById(R.id.endLocEditText);
+            editText.setError("Please enter an end location");
+        } else {
+            RideInfo rideInfo = new RideInfo(1, name, dateTime, startLat, startLng, endLat, endLng, distance, pace, age);
+            System.out.println(rideInfo.infoToString());
+            Intent intent = new Intent(this, TestActivity.class);
+            intent.putExtra("rideInfo", rideInfo);
+            startActivity(intent);
+        }
     }
 
     public void showRoute(View view) throws IOException{
-        String start = ((EditText) findViewById(R.id.startLocEditText)).getText().toString();
-        String end = ((EditText) findViewById(R.id.endLocEditText)).getText().toString();
-        start = UrlEscapers.urlPathSegmentEscaper().escape(start);
-        end = UrlEscapers.urlPathSegmentEscaper().escape(end);
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin="+start+"&destination="+end+"&avoid=highways&mode=bicycling&key=AIzaSyBdoK6DhGq7aXZOuYgcP3igReXSDlPC9mY";
-        parseJson(url);
+        EditText start = ((EditText) findViewById(R.id.startLocEditText));
+        EditText end = ((EditText) findViewById(R.id.endLocEditText));
 
+        if(TextUtils.isEmpty(start.getText().toString())) {
+            start.setError("Please enter a start location");
+        }
+        if(TextUtils.isEmpty(end.getText().toString())){
+            end.setError("Please enter an end location");
+        }
+        if((!TextUtils.isEmpty(start.getText().toString())) && (!TextUtils.isEmpty(end.getText().toString()))){
+            String startURL = UrlEscapers.urlPathSegmentEscaper().escape(start.getText().toString());
+            String endURL = UrlEscapers.urlPathSegmentEscaper().escape(end.getText().toString());
+            String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startURL + "&destination=" + endURL + "&avoid=highways&mode=bicycling&key=AIzaSyBdoK6DhGq7aXZOuYgcP3igReXSDlPC9mY";
+            parseJson(url);
+        }
     }
 
     public void parseJson(String url) {
@@ -117,8 +151,6 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
                     public void onErrorResponse(VolleyError error) {
                         // TODO Auto-generated method stub
                         System.out.println(error);
-//                        Toast invalidLocation = Toast.makeText(getApplicationContext(), "Please enter valid locations", Toast.LENGTH_SHORT);
-//                        invalidLocation.show();
                     }
                 });
 
@@ -126,23 +158,27 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public LatLng getStartLoc(){
-        try {
-            Double startLat = route.getJSONArray("legs").getJSONObject(0).getJSONObject("start_location").getDouble("lat");
-            Double startLng = route.getJSONArray("legs").getJSONObject(0).getJSONObject("start_location").getDouble("lng");
-            return new LatLng(startLat, startLng);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(!TextUtils.isEmpty(((EditText)findViewById(R.id.startLocEditText)).getText().toString())) {
+            try {
+                Double startLat = route.getJSONArray("legs").getJSONObject(0).getJSONObject("start_location").getDouble("lat");
+                Double startLng = route.getJSONArray("legs").getJSONObject(0).getJSONObject("start_location").getDouble("lng");
+                return new LatLng(startLat, startLng);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return new LatLng(0, 0);
     }
 
     public LatLng getEndLoc(){
-        try {
-            Double endLat = route.getJSONArray("legs").getJSONObject(0).getJSONObject("end_location").getDouble("lat");
-            Double endLng = route.getJSONArray("legs").getJSONObject(0).getJSONObject("end_location").getDouble("lng");
-            return new LatLng(endLat, endLng);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(!TextUtils.isEmpty(((EditText)findViewById(R.id.endLocEditText)).getText().toString())) {
+            try {
+                Double endLat = route.getJSONArray("legs").getJSONObject(0).getJSONObject("end_location").getDouble("lat");
+                Double endLng = route.getJSONArray("legs").getJSONObject(0).getJSONObject("end_location").getDouble("lng");
+                return new LatLng(endLat, endLng);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return new LatLng(0, 0);
     }
@@ -175,7 +211,7 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public String getName(){
-        EditText nameInp = (EditText)findViewById(R.id.raceNameInput);
+        EditText nameInp = (EditText)findViewById(R.id.rideNameInput);
         return nameInp.getText().toString();
     }
 
@@ -193,10 +229,13 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public String getDistance(){
-        try {
-            return route.getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getString("text");
-        } catch (JSONException e) {
-            System.out.println(e.getLocalizedMessage());
+        if(!TextUtils.isEmpty(((EditText)findViewById(R.id.startLocEditText)).getText().toString()) ||
+                (!TextUtils.isEmpty(((EditText)findViewById(R.id.endLocEditText)).getText().toString()))) {
+            try {
+                return route.getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getString("text");
+            } catch (JSONException e) {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
         return "0 km";
     }
