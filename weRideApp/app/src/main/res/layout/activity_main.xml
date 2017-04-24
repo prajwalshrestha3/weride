@@ -16,15 +16,16 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:text="@string/start_button_home"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/start_button_home"
-            android:layout_marginBottom="35dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
             android:textAppearance="@style/home_button_style"
             android:background="@drawable/button_bg"
             android:onClick="goToMap"/>
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/create_button_home"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="50dp"
             android:textAppearance="@style/home_button_style"
             android:background="@drawable/button_bg"
             android:onClick="goToCreateRidePage"/>
@@ -44,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/find_button_home"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="50dp"
             android:textAppearance="@style/home_button_style"
             android:background="@drawable/button_bg"
             android:onClick="goToFindRidePage"/>
@@ -54,28 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/profile_button_home"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="50dp"
             android:textAppearance="@style/home_button_style"
             android:background="@drawable/button_bg"/>
 
-        <Button
-            android:text="@string/stats_button_home"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:id="@+id/stats_button_home"
-            android:textAppearance="@style/home_button_style"
-            android:background="@drawable/button_bg"/>
     </LinearLayout>
-<!--=======-->
-    <!--<Button-->
-        <!--android:text="Start"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="186dp"-->
-        <!--android:id="@+id/button5"-->
-        <!--android:onClick="gotomap"/>-->
-
-<!--&gt;>>>>>> a0f803331e49cff21656c1f0fe55f3921541c78a-->
 </RelativeLayout>

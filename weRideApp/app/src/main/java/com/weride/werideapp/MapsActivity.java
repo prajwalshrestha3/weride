@@ -1,6 +1,7 @@
 package com.weride.werideapp;
 
 import android.app.Dialog;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
 import android.os.Build;
@@ -41,6 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
 
     }
 

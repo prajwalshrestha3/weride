@@ -2,6 +2,7 @@ package com.weride.werideapp;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,8 @@ public class FindRideActivity extends ListActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_find_ride);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+
 
         //adapter instantiation with inner class declaration to change colour of text in listview taken from shardul's answer on
         //http://stackoverflow.com/questions/4602902/how-to-set-the-text-color-of-textview-in-code
