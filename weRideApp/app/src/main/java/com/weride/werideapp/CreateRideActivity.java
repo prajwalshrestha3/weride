@@ -175,7 +175,7 @@ public class CreateRideActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public String getName(){
-        EditText nameInp = (EditText)findViewById(R.id.raceNameInput);
+        EditText nameInp = (EditText)findViewById(R.id.rideNameInput);
         return nameInp.getText().toString();
     }
 

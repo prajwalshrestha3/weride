@@ -19,9 +19,101 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
             android:id="@+id/editTextRideSearch"
-            android:hint="Search for a ride" />
+            android:hint="Search for a ride"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:text="...Or search using filters: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp" />
+
+        <TextView
+            android:text="Pace:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/paceTextLabel"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/paceBar"
+            android:numStars="5"
+            android:layout_marginBottom="15dp"
+            style="@style/Widget.AppCompat.RatingBar"
+            android:stepSize="1"
+            android:indeterminateDrawable="@drawable/button_bg" />
+
+        <TextView
+            android:text="Age:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ageTextLabel"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <RadioButton
+                android:text="18-35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton18_35"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="36-50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton36_50"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="50+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton50Plus"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:text="Find Ride"
+            android:layout_width="match_parent"
+            android:id="@+id/findRideButton"
+            android:layout_weight="0"
+            android:layout_marginBottom="15dp"
+            android:onClick="addItems"
+            android:layout_height="wrap_content" />
+
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false" />
+
+        <TextView
+            android:id="@android:id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:textColor="#000000"
+            android:paddingRight="10dip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
+
+
 </RelativeLayout>
