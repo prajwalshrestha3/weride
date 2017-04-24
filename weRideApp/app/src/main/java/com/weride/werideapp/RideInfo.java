@@ -1,6 +1,8 @@
 package com.weride.werideapp;
 
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -9,12 +11,12 @@ import java.util.Calendar;
  */
 
 public class RideInfo implements Serializable{
-    String raceName;
+    String raceName, distance;
     Calendar dateTime;
-    Double startLat, startLng, endLat, endLng;
+    double startLat, startLng, endLat, endLng;
     int createdByID, pace, age;
 
-    public RideInfo(int createdByID, String raceName, Calendar dateTime, Double startLat, Double startLng, Double endLat, Double endLng, int pace, int age){
+    public RideInfo(int createdByID, String raceName, Calendar dateTime, double startLat, double startLng, double endLat, double endLng, String distance, int pace, int age){
         this.createdByID = createdByID;
         this.raceName = raceName;
         this.dateTime = dateTime;
@@ -22,8 +24,22 @@ public class RideInfo implements Serializable{
         this.startLng = startLng;
         this.endLat = endLat;
         this.endLng = endLng;
+        this.distance = distance;
         this.pace = pace;
         this.age = age;
+    }
+
+    public String infoToString(){
+        return this.createdByID + ", " +
+                this.raceName + ", " +
+                this.dateTime.getTime() + ", " +
+                this.startLat + ", " +
+                this.startLng + ", " +
+                this.endLat + ", " +
+                this.endLng + ", " +
+                this.distance + ", " +
+                this.pace + ", " +
+                this.age;
     }
 
 }
