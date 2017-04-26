@@ -188,7 +188,7 @@
                 android:id="@+id/createRideButton"
                 android:layout_weight="1"
                 android:layout_marginBottom="15dp"
-                android:onClick="goToTestActivity"/>
+                android:onClick="goToCreatedRide"/>
 
         </LinearLayout>
     </ScrollView>

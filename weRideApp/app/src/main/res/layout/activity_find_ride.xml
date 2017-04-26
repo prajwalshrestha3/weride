@@ -22,6 +22,7 @@
             android:ems="10"
             android:id="@+id/editTextRideSearch"
             android:hint="Search for a ride"
+            android:textColor="?attr/colorPrimary"
             android:layout_marginBottom="15dp" />
 
         <TextView

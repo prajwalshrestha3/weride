@@ -10,6 +10,7 @@ import java.util.Calendar;
  * Created by josephcooper on 07/03/2017.
  */
 
+//CLASS THAT ALLOWS RIDES TO BE STORED IN A MANAGEABLE WAY, FOR EASY MANIPULATION WITHIN APP AND IN SENDING AND RECEIVING TO AND FROM DATABASE
 public class RideInfo implements Serializable{
     String rideName, distance;
     Calendar dateTime;
@@ -29,6 +30,7 @@ public class RideInfo implements Serializable{
         this.age = age;
     }
 
+    //FORMATS ALL RIDEINFO OBJECT VARIABLES INTO A SINGLE STRING TO BE USED IN THE URL THATS USED IN THE PROCESS OF SENDING RIDE DATA TO THE DATABASE
     public String infoToString(){
         return this.createdByID + ", " +
                 this.rideName + ", " +

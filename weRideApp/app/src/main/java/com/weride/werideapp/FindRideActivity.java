@@ -43,9 +43,9 @@ public class FindRideActivity extends ListActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view =super.getView(position, convertView, parent);
 
-                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+                TextView textView=(TextView) view.findViewById(android.R.id.text1); //GET TEXTVIEW
 
-                textView.setTextColor(Color.BLACK);
+                textView.setTextColor(Color.BLACK); //CHANGE TEXT COLOUR TO BLACK
 
                 return view;
             }
@@ -55,13 +55,11 @@ public class FindRideActivity extends ListActivity {
 
     }
 
-    //METHOD WHICH WILL HANDLE DYNAMIC INSERTION
+    //METHOD WHICH WILL HANDLE ADDING ITEMS FROM DATABASE, BUT FOR NOW A DUMMY RIDE INFO OBJECT IS CREATED AND ADDED TO LIST
     public void addItems(View v) {
         Calendar now = Calendar.getInstance();
         now.set(2017, 4, 19, 6, 30);
         RideInfo r1 = new RideInfo(1, "r1", now, 53.2, 40, 52, 23, "12 km", 3, 18);
-        searchResults.add(r1.infoToString());
-        searchResults.add(r1.infoToString());
         searchResults.add(r1.infoToString());
         adapter.notifyDataSetChanged();
     }
