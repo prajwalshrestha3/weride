@@ -32,15 +32,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String type = params[0];
         String register_url="http://luxurytradingacademy.com/werideapp/insertStudent.php";
         if(type.equals("register")) {
-
             try {
-                String firstname = params[0];
-                String lastname = params[1];
-                String age = params[2];
-                String address = params[3];
-                String email = params[4];
-                String username = params[5];
-                String password = params[6];
+                String firstname = params[1];
+                String lastname = params[2];
+                String age = params[3];
+                String address = params[4];
+                String email = params[5];
+                String username = params[6];
+                String password = params[7];
                 try {
                     URL url = new URL(register_url);
                     try {

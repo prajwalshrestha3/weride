@@ -42,7 +42,7 @@ public class Registerpage extends AppCompatActivity {
         String str_password = password.getText().toString();
         String type = "register";
         BackgroundWorker backgroundWorker=new BackgroundWorker(this);
-        backgroundWorker.execute(str_firstname,str_lastname,str_age,str_address,str_email,str_email,str_username,str_password);
+        backgroundWorker.execute(type, str_firstname,str_lastname,str_age,str_address,str_email,str_username,str_password);
 
     }
 
